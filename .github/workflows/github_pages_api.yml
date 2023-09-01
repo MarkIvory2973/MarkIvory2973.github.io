@@ -27,8 +27,9 @@ jobs:
         wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
         tar -xvzf ./ngrok-v3-stable-linux-amd64.tgz
         rm ./ngrok-v3-stable-linux-amd64.tgz
-        chmod +x ./ngrok
-        ./ngrok config add-authtoken ${{ secrets.NGROK_TOKEN }}
+        chmod +x ngrok
+        mv ngrok /usr/bin
+        ngrok config add-authtoken ${{ secrets.NGROK_TOKEN }}
   deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -39,7 +40,7 @@ jobs:
     steps:
       - name: Run Ngrok
         run: |
-          ./ngrok http 80
+          ngrok http 80
       - name: Run Python
         run: |
           python api.py
