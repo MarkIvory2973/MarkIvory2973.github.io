@@ -28,7 +28,8 @@ jobs:
         tar -xvzf ./ngrok-v3-stable-linux-amd64.tgz
         rm ./ngrok-v3-stable-linux-amd64.tgz
         chmod +x ngrok
-        mv ngrok /usr/bin
+        sudo mv ngrok /usr/bin
+        pwd
         ngrok config add-authtoken ${{ secrets.NGROK_TOKEN }}
   deploy:
     runs-on: ubuntu-latest
@@ -40,7 +41,11 @@ jobs:
     steps:
       - name: Run Ngrok
         run: |
+          pwd
+          ls
           ngrok http 80
       - name: Run Python
         run: |
+          pwd
+          ls
           python api.py
