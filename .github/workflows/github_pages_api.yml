@@ -25,6 +25,8 @@ jobs:
     - name: Set up Ngrok
       run: |
         ls
+        pwd
+        ls ..
         wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz -o ngrok.tgz
         tar -xvzf ./ngrok.tgz
         rm ngrok.tgz
