@@ -24,12 +24,9 @@ jobs:
         pip install flask
     - name: Set up Ngrok
       run: |
-        ls
-        pwd
-        ls ..
-        wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz -o ngrok.tgz
-        tar -xvzf ./ngrok.tgz
-        rm ngrok.tgz
+        wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+        tar -xvzf ./ngrok-v3-stable-linux-amd64.tgz
+        rm ./ngrok-v3-stable-linux-amd64.tgz
         chmod +x ./ngrok
         ./ngrok config add-authtoken ${{ secrets.NGROK_TOKEN }}
   deploy:
