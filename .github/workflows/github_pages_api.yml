@@ -9,7 +9,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 55
     strategy:
       max-parallel: 4
 
@@ -33,7 +33,7 @@ jobs:
     - name: Run Ngrok
       run: |
         tmux new-session -d -s ngrok
-        tmux send-keys -t ngrok './ngrok http 5000' C-m
+        tmux send-keys -t ngrok './ngrok http --domain=sharp-turtle-optionally.ngrok-free.app 5000' C-m
     - name: Run Python
       run: |
         python api.py
