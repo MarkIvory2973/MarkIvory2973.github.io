@@ -6,10 +6,10 @@ blogs = list(os.scandir("blogs"))
 
 @app.route("/api/v1/blog", methods=["GET"])
 def root():
-    index = int(request.args.get("index", "0"))
+    id = request.args.get("id", type=int)
     
     try:
-        with open(blogs[index].path) as blog:
+        with open(blogs[id-1].path) as blog:
             content = blog.read()
     except FileNotFoundError:
         abort(404)
