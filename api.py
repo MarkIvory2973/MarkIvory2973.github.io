@@ -1,6 +1,8 @@
 import os
 from flask import *
+from flask_cors import CORS
 app = Flask(__name__)
+CORS(app, origins=["https://markivory2973.github.io", "http://localhost:3000"])
 
 blogs = list(os.scandir("blogs"))
 

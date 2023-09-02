@@ -22,7 +22,7 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flask
+        pip install flask flask-cors
     - name: Set up Ngrok
       run: |
         wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
@@ -33,7 +33,7 @@ jobs:
     - name: Run Ngrok
       run: |
         tmux new-session -d -s ngrok
-        tmux send-keys -t ngrok './ngrok http --domain=sharp-turtle-optionally.ngrok-free.app --response-header-add="Access-Control-Allow-Origin: https://markivory2973.github.io,http://localhost:3000" 5000' C-m
+        tmux send-keys -t ngrok './ngrok http --domain=sharp-turtle-optionally.ngrok-free.app 5000' C-m
     - name: Run Python
       run: |
         python api.py
