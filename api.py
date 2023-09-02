@@ -10,18 +10,22 @@ blogs = list(os.scandir("blogs"))
 def root_api_v1_blog():
     count = request.args.get("count", type=int)
     
-    try:
-        ret = []
-        if count <= len(blogs):
-            for i in range(-1, -count-1, -1):
-                with open(blogs[i].path) as blog:
-                    ret.append([i] + blog.read().split("#SPLIT#")[0].split("\n")[:-1])
-        else:
-            for i in range(-1, -len(blogs)-1, -1):
-                with open(blogs[i].path) as blog:
-                    ret.append([i] + blog.read().split("#SPLIT#")[0].split("\n")[:-1])
-    except FileNotFoundError:
-        abort(404)
+    ret = []
+    for blog in blogs[::-1][:count]:
+        with open(blog.path) as fBlog:
+            ret.append([blog.name.split(".")[0]] + fBlog.read().split("#SPLIT#")[0].split("\n")[:-1])
+    
+    return jsonify(ret)
+
+@app.route("/api/v1/blogs", methods=["GET"])
+def root_api_v1_blog():
+    count = request.args.get("count", type=int)
+    page = request.args.get("page", type=int)
+    
+    ret = []
+    for blog in blogs[::-1][count*(page-1):count*page]:
+        with open(blog.path) as fBlog:
+            ret.append([blog.name.split(".")[0]] + fBlog.read().split("#SPLIT#")[0].split("\n")[:-1])
     
     return jsonify(ret)
 
