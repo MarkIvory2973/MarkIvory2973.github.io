@@ -32,8 +32,8 @@ jobs:
         ./ngrok config add-authtoken ${{ secrets.NGROK_TOKEN }}
     - name: Run Ngrok
       run: |
-        ls
-        ./ngrok http 80
+        nohup ./ngrok http 80
+        cat ./nohup.out
     - name: Run Python
       run: |
         python api.py
