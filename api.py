@@ -8,7 +8,7 @@ def root():
     blogs = list(os.scandir("blogs"))
     
     try:
-        with open(f"blogs/{blogs[index]}.md") as blog:
+        with open(blogs[index].path) as blog:
             content = blog.read()
     except FileNotFoundError:
         abort(404)
