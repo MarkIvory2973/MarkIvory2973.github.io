@@ -13,6 +13,6 @@ def root():
     except FileNotFoundError:
         abort(404)
     
-    return len(blogs), content
+    return content
 
 app.run("localhost", 5000)
