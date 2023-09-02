@@ -7,7 +7,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 55
+    timeout-minutes: 60
     strategy:
       max-parallel: 4
 
