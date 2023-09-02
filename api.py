@@ -2,7 +2,7 @@ import os
 from flask import *
 from flask_cors import CORS
 app = Flask(__name__)
-CORS(ap)
+CORS(app)
 
 blogs = list(os.scandir("blogs"))
 
@@ -12,9 +12,14 @@ def root_api_v1_blog():
     
     try:
         ret = []
-        for i in range(-1, -count-1, -1):
-            with open(blogs[i].path) as blog:
-                ret.append([i] + blog.read().split("#SPLIT#")[0].split("\n")[:-1])
+        if count <= len(blogs):
+            for i in range(-1, -count-1, -1):
+                with open(blogs[i].path) as blog:
+                    ret.append([i] + blog.read().split("#SPLIT#")[0].split("\n")[:-1])
+        else:
+            for i in range(-1, -len(blogs)-1, -1):
+                with open(blogs[i].path) as blog:
+                    ret.append([i] + blog.read().split("#SPLIT#")[0].split("\n")[:-1])
     except FileNotFoundError:
         abort(404)
     
