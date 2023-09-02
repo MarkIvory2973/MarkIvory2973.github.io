@@ -28,6 +28,7 @@ jobs:
         tar -xvzf ./ngrok-v3-stable-linux-amd64.tgz
         rm ./ngrok-v3-stable-linux-amd64.tgz
         chmod +x ./ngrok
+        ls
         ./ngrok config add-authtoken ${{ secrets.NGROK_TOKEN }}
   deploy:
     runs-on: ubuntu-latest
