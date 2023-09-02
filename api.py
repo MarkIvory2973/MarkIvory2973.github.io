@@ -7,7 +7,7 @@ CORS(app, origins=["https://markivory2973.github.io", "http://localhost:3000"], 
 blogs = list(os.scandir("blogs"))
 
 @app.route("/api/v1/latestblogs", methods=["GET"])
-def root_api_v1_blog():
+def root_api_v1_latestblogs():
     count = request.args.get("count", type=int)
     
     ret = []
@@ -18,7 +18,7 @@ def root_api_v1_blog():
     return jsonify(ret)
 
 @app.route("/api/v1/blogs", methods=["GET"])
-def root_api_v1_blog():
+def root_api_v1_blogs():
     count = request.args.get("count", type=int)
     page = request.args.get("page", type=int)
     
