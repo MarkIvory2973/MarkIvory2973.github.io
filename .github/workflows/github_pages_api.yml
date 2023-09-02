@@ -32,8 +32,8 @@ jobs:
         ./ngrok config add-authtoken ${{ secrets.NGROK_TOKEN }}
     - name: Run Ngrok
       run: |
-        nohup ./ngrok http 80
-        cat ./nohup.out
+        tmux new-session -d -s ngrok
+        tmux send-keys -t ngrok './ngrok http 80' C-m
     - name: Run Python
       run: |
         python api.py
