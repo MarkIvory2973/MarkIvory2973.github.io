@@ -21,8 +21,8 @@ jobs:
         python-version: 3.9
     - name: Install Dependencies
       run: |
-        sudo python -m pip install --upgrade pip
-        sudo pip install flask
+        python -m pip install --upgrade pip
+        pip install flask
     - name: Set up Ngrok
       run: |
         wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
@@ -33,7 +33,7 @@ jobs:
     - name: Run Ngrok
       run: |
         tmux new-session -d -s ngrok
-        tmux send-keys -t ngrok './ngrok http 80' C-m
+        tmux send-keys -t ngrok './ngrok http 5000' C-m
     - name: Run Python
       run: |
-        sudo python api.py
+        python api.py
