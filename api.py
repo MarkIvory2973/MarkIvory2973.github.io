@@ -4,16 +4,18 @@ app = Flask(__name__)
 
 blogs = list(os.scandir("blogs"))
 
-@app.route("/api/v1/blog", methods=["GET"])
-def root():
-    id = request.args.get("id", type=int)
+@app.route("/api/v1/latestblogs", methods=["GET"])
+def root_api_v1_blog():
+    count = request.args.get("count", type=int)
     
     try:
-        with open(blogs[id-1].path) as blog:
-            content = blog.read()
+        ret = []
+        for i in range(-1, -count-1, -1):
+            with open(blogs[i].path) as blog:
+                ret.append([i] + blog.read().split("#SPLIT#")[0].split("\n")[:-1])
     except FileNotFoundError:
         abort(404)
     
-    return content
+    return jsonify(ret)
 
 app.run("localhost", 5000)
