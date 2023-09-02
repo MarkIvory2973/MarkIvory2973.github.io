@@ -36,4 +36,4 @@ jobs:
         tmux send-keys -t ngrok './ngrok http 80' C-m
     - name: Run Python
       run: |
-        python api.py
+        sudo python api.py
