@@ -4,8 +4,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app, origins=["https://markivory2973.github.io", "http://localhost:3000"], supports_credentials=True)
 
-blogs = list(os.scandir("blogs"))
-resources = list(os.scandir("resources"))
+blogs = sorted(os.scandir("blogs"), key=lambda entry: entry.name)
+resources = sorted(os.scandir("resources"), key=lambda entry: entry.name)
 
 @app.route("/api/v1/latestblogs", methods=["GET"])
 def root_api_v1_latestblogs():
