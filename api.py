@@ -5,6 +5,7 @@ app = Flask(__name__)
 CORS(app, origins=["https://markivory2973.github.io", "http://localhost:3000"], supports_credentials=True)
 
 blogs = list(os.scandir("blogs"))
+resources = list(os.scandir("resources"))
 
 @app.route("/api/v1/latestblogs", methods=["GET"])
 def root_api_v1_latestblogs():
