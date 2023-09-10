@@ -32,11 +32,11 @@ def root_api_v1_blogs():
 
 @app.route("/api/v1/blog", methods=["GET"])
 def root_api_v1_blog():
-    index = request.args.get("index", type=int)
+    id = request.args.get("id", type=int)
     
-    with open(blogs[index].path) as fBlog:
+    with open(blogs[id].path) as fBlog:
         content = fBlog.read().split("#SPLIT#")
-        ret = [str(index)] + content[0].split("\n")[:-2] + [content[1]]
+        ret = [str(id)] + content[0].split("\n")[:-2] + [content[1]]
     
     return jsonify(ret)
 
