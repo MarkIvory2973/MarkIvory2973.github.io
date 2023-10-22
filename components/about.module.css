@@ -1,0 +1,30 @@
+div.v {
+  backdrop-filter: blur(20px);
+  margin: 20px 0 0 0;
+  border-radius: 6px;
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 300ms;
+}
+  
+div.v:hover {
+  box-shadow: 0 0 20px 15px rgba(0, 0, 0, 0.2);
+}
+
+div#about {
+  display: flex;
+  padding: 15px;
+  flex-direction: column;
+  align-items: center;
+}
+
+h3.name {
+  padding: 15px 0 0 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+img.avatar {
+  width: 128px;
+  height: 128px;
+  clip-path: circle(50%);
+}
