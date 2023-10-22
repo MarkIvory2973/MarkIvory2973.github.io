@@ -58,7 +58,9 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build && ls
+        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+      - name: Setup Debug Session
+        uses: csexton/debugger-action@master
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
