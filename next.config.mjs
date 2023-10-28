@@ -12,7 +12,8 @@ const nextConfig = {
       'avatars.githubusercontent.com',
       'raw.githubusercontent.com'
     ]
-  }
+  },
+  output: 'export'
 }
 
 const options = {
