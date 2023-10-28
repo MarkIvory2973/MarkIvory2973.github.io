@@ -32,12 +32,6 @@ function Date(props) {
   )
 }
 
-function Preview(props) {
-  return (
-    <p className={styles.preview}>{props.children}</p>
-  )
-}
-
 function Markdown(props) {
   return (
     <article className='markdown-body'>
@@ -46,4 +40,4 @@ function Markdown(props) {
   )
 }
 
-export { Content, Header, Title, Date, Preview, Markdown };
+export { Content, Header, Title, Date, Markdown };

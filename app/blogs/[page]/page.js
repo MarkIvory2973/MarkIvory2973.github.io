@@ -1,4 +1,4 @@
-import { Content, Header, Title, Date, Preview } from '@/components/content'
+import { Content, Header, Title, Date, Markdown } from '@/components/content'
 import { Actions, PrevButton, NextButton } from '@/components/actions'
 import blog from '@/blog/blog'
 
@@ -13,7 +13,7 @@ export default function Page({ params }) {
           <Header id={id} type='blog' />
           <Title id={id} type='blog'>{blog[`${id}`].title}</Title>
           <Date>{blog[`${id}`].date}</Date>
-          <Preview>{blog[`${id}`].preview}</Preview>
+          <Markdown>{blog[`${id}`].preview}</Markdown>
         </Content>
       ))}
       <Actions>
