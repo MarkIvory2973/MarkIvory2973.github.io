@@ -1,4 +1,4 @@
-# Getting Started
+## Getting Started
 
 Open this [link](markivory2973.github.io) to visit home page.
 
