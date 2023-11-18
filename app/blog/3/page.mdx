@@ -32,7 +32,7 @@ import blog from '@/blog/blog'
           table = list(range(256))
 
           # 生成随机数种子
-          seed = divmod(pri_key * time.time(), step)[0]
+          seed = pri_key * divmod(time.time(), step)[0]
           random.seed(seed)
 
           # 打乱原密码表
