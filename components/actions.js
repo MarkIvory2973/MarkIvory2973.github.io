@@ -13,7 +13,7 @@ function Actions(props) {
 function PrevButton(props) {
   if (props.page - 1 > 0) {
     return (
-      <Link href={`/blogs/${props.page - 1}`}>&lt; Prev</Link>
+      <Link href={`/${props.type}/${props.page - 1}`}>&lt; Prev</Link>
     )
   }
 }
@@ -21,7 +21,7 @@ function PrevButton(props) {
 function NextButton(props) {
   if (props.page - 1 + 2 <= Math.ceil(blog.length / 5)) {
     return (
-      <Link href={`/blogs/${props.page - 1 + 2}`}>Next &gt;</Link>
+      <Link href={`/${props.type}/${props.page - 1 + 2}`}>Next &gt;</Link>
     )
   }
 }

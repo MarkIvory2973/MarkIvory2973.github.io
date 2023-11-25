@@ -17,8 +17,8 @@ export default function Page({ params }) {
         </Content>
       ))}
       <Actions>
-        <PrevButton page={page} />
-        <NextButton page={page} />
+        <PrevButton type="blogs" page={page} />
+        <NextButton type="blogs" page={page} />
       </Actions>
     </div>
   )

@@ -1,4 +1,6 @@
 import remarkGfm from 'remark-gfm'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
 import rehypePrettyCode from 'rehype-pretty-code'
 import createMDX from '@next/mdx'
  
@@ -13,7 +15,7 @@ const nextConfig = {
       'raw.githubusercontent.com'
     ]
   },
-  output: 'export'
+  output: "export"
 }
 
 const options = {
@@ -24,8 +26,8 @@ const options = {
 const withMDX = createMDX({
   // Add markdown plugins here, as desired
   options: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [[rehypePrettyCode, options]],
+    remarkPlugins: [remarkGfm, remarkMath],
+    rehypePlugins: [rehypeKatex, [rehypePrettyCode, options]],
   },
 })
  
