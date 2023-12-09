@@ -14,7 +14,11 @@ a {
 }
 
 span.katex-html {
-  visibility: hidden;
+  display: none;
+}
+
+span.katex-display math {
+  margin-bottom: 16px;
 }
 
 main {
