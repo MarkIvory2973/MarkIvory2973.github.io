@@ -1,8 +1,16 @@
+@font-face {
+  font-family: 'Aptos';
+  src: url('../public/aptos.ttf');
+}
+
 * {
   padding: 0;
   margin: 0;
   color: white;
-  font-family: 'Segoe UI';
+}
+
+*:not(span.katex-html, .markdown-body *) {
+  font-family: 'Aptos';
 }
 
 body {
@@ -32,13 +40,13 @@ main div.h {
   margin: 20px;
 }
 
-@media (max-width: 620px) {
+@media (max-width: 38.75rem) {
   main {
       flex-direction: column;
   }
 }
 
-@media (min-width: 620px) {
+@media (min-width: 38.75rem) {
   main div.h:first-child {
       width: 61.8%;
   }

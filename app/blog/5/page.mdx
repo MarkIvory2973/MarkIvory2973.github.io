@@ -17,21 +17,65 @@ import blog from '@/blog/blog'
 
       其实答案已经很明显了，就是结合**距离**和**方向**考虑下一步。如果这条路所朝**方向**与目的地**方向**越接近，且该道路连接的下一个路口与目的地的**距离**越小，则该道路就越有可能通向目的地。反之，则越不可能通向目的地。
 
-      ### 2. 大致步骤
+      ### 2. 数学公式
+
+      1. 将**路口绝对位置** $\overrightarrow{p_{i}}$ 转化为 **道路向量** $\overrightarrow{r_{i}}$
+
+      ```math
+      \overrightarrow{r_{i}} = \overrightarrow{p_{i}} - \overrightarrow{p_{st}}
+      ```
+
+      2. 计算**道路分数** $s_{i}$
+
+      ```math
+      s_{i} = \frac{\overrightarrow{r_{i}} \cdot \overrightarrow{r_{ed}}}{|\overrightarrow{r_{i}}||\overrightarrow{r_{ed}}|} 
+      ```
+
+      3. 计算**距离** $l_{i}$
+
+      ```math
+      l_{i} = |\overrightarrow{p_{ed}} - \overrightarrow{p_{i}}|
+      ```
+
+      4. 计算**道路价值** $v_{i}$
+
+      ```math
+      v_{i} = (\max l_{i} - l_{i}) \cdot s_{i}
+      ```
+      
+      ### 3. 大致步骤
 
       1. 将所在路口的所有能走的**道路向量** $\overrightarrow{r_{i}}$ 与**目的地向量** $\overrightarrow{r_{ed}}$ 做点积运算，再除以它们的**模长的乘积** $|\overrightarrow{r_{i}}||\overrightarrow{r_{ed}}|$ 得到**道路分数** $s_{i}$
       2. 计算所有**能到达的路口** $\overrightarrow{p_{i}}$ 到**目的地路口** $\overrightarrow{p_{ed}}$ 的距离，得到**距离** $l_{i}$
-      3. 用**最大距离** $\max$ $l_{i}$ 减去**距离** $l_{i}$ 再与**道路分数** $s_{i}$ 相乘，得到**道路价值** $v_{i}$
-
-      ### 3. 数学公式
-
-      （还没写完...）
+      3. 用**最大距离** $\max l_{i}$ 减去**距离** $l_{i}$ 再与**道路分数** $s_{i}$ 相乘，得到**道路价值** $v_{i}$
+      4. 再根据**道路价值** $v_{i}$ 尝试搜索到终点的路径
 
       ### 4. 图像理解
 
       （还没写完...）
 
-      ### 5. 参考资料
+      ### 5. 补充
+
+      1. 以路口为单位，每个路口保存了各自能到达的路口的绝对位置，下面是一个示例：
+
+      ```python
+      data = {
+          # 路口绝对位置 Pst
+          (2, 3): [
+              # 下一个路口的绝对位置 P1
+              (5, 6),
+              # 下一个路口的绝对位置 P2
+              (4, 2),
+              # 下一个路口的绝对位置 P3
+              (0, 0)
+          ],
+          # ...
+      }
+      ```
+
+      2. 可以根据实际情况为道路添加权重，比如：是否在修路、堵车程度、有多大面积的植被遮荫等等
+
+      ### 6. 参考资料
 
       1. https://zh.wikipedia.org/wiki/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E8%B7%9D%E7%A6%BB
     </Markdown>

@@ -38,7 +38,7 @@ p.date::before {
   content: '\EC92';
   padding: 0 8px 0 0;
   font-family: 'Segoe Fluent Icons';
-  vertical-align: -2px;
+  vertical-align: -2.5px;
 }
 
 div.v article {

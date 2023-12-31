@@ -30,7 +30,7 @@ h3.name {
 }
 
 p.bio {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 div.links {
@@ -43,10 +43,10 @@ a.link {
 }
 
 a.link svg {
-  fill: rgba(0, 0, 0, 0.6);
+  fill: rgba(255, 255, 255, 0.6);
   transition: fill 300ms;
 }
 
 a.link svg:hover {
-  fill: rgba(0, 0, 0, 1)
+  fill: rgba(255, 255, 255, 1)
 }
