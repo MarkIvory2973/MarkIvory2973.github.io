@@ -11,7 +11,6 @@ const nextConfig = {
   // Optionally, add any other Next.js config below
   images: {
     domains: [
-      'avatars.githubusercontent.com',
       'raw.githubusercontent.com'
     ]
   },

@@ -4,7 +4,7 @@ import styles from './about.module.css'
 function About() {
   return (
     <div id={styles.about} className={styles.v}>
-        <img className={styles.avatar} src='https://avatars.githubusercontent.com/u/114793567' alt='Avatar' />
+        <img className={styles.avatar} src='/Avatar.webp' alt='Avatar' />
         <h3 className={styles.name}>Mark Ivory</h3>
         <p className={styles.bio}>只是一个陌生人</p>
         <div className={styles.links}>
