@@ -1,26 +1,31 @@
 {
     "length": 5,
     "1": {
+        "header": "A scenic view of a straight road leading towards majestic snow-capped mountains under a clear blue sky, with barren land on both sides covered in patches of snow.",
         "title": "为什么你需要抛弃 Clash for Windows",
         "date": "9/29/2023",
         "preview": "一直以来 Clash for Windows 是我翻墙的首选客户端。但随着技术的更新迭代，Clash for Windows 开始落后了。"
     },
     "2": {
+        "header": "A person is captured mid-air while jumping off a cliff against a backdrop of a cloudy sky during sunset.",
         "title": "React 如何撤回 Eject",
         "date": "9/30/2023",
         "preview": "今天手贱运行了 yarn run eject，试过之后后悔了，网上大多都在说「这是个不可逆的操作」，让你重建项目。但实际上，你不需要重建项目就能恢复。"
     },
     "3": {
+        "header": "Close-up view of green fern leaves with a blurred background.",
         "title": "加密算法的一个点子：时序动态单表替换密码（TDMSC）",
         "date": "10/2/2023",
         "preview": "最近在研究 SS（Shadowsocks）协议和 TOTP，突然想到了一个点子，能不能把它们两个结合起来呢？"
     },
     "4": {
+        "header": "A narrow street view showcasing the facades of classic European buildings with multiple windows, some with open shutters.",
         "title": "如何节省内存地计算平均值",
         "date": "11/24/2023",
         "preview": "假设你有很多个数据，需要实时地计算平均值，但又不想储存数据，你会怎么做？"
     },
     "5": {
+        "header": "An escalator ascending towards a bright sky, bordered by metallic walls.",
         "title": "一个简单的导航算法",
         "date": "12/9/2023",
         "preview": "如果你试过不用手机导航到达目的地，你会发现想要到达目的地需要确定两件事："

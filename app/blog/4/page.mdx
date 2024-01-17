@@ -2,9 +2,9 @@ import { Content, Header, Title, Date, Markdown } from '@/components/content'
 import blog from '@/blog/blog'
 
 <div className='h'>
-  <h2>Blogs</h2>
+  <h2>Blog</h2>
   <Content>
-    <Header id={4} type='blog' />
+    <Header id={4} type='blog' alt={blog[4].header} />
     <Title id={4} type='blog'>{blog[4].title}</Title>
     <Date>{blog[4].date}</Date>
     <Markdown>

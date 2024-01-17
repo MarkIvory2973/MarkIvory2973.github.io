@@ -18,6 +18,12 @@ function PrevButton(props) {
   }
 }
 
+function Message(props) {
+  return (
+    <Link href='/'>{props.children}</Link>
+  )
+}
+
 function NextButton(props) {
   if (props.page - 1 + 2 <= Math.ceil(blog.length / 5)) {
     return (
@@ -26,4 +32,4 @@ function NextButton(props) {
   }
 }
 
-export { Actions, PrevButton, NextButton }
+export { Actions, PrevButton, NextButton, Message }

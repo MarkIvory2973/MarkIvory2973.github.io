@@ -13,7 +13,7 @@ function Content(props) {
 function Header(props) {
   if (props.id > 0) {
     return (
-      <img className={styles.header} src={`/${props.id}.webp`} />
+      <img className={styles.header} src={`/${props.id}.webp`} alt={props.alt} />
       )
   }
 }

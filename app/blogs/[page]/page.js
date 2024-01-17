@@ -10,15 +10,15 @@ export default function Page({ params }) {
       <h2>Blogs</h2>
       {Array.from({ length: 5 }, (_, i) => blog.length - ((page - 1) * 5 + i)).map((id, _) => id > 0 && (
         <Content key={id}>
-          <Header id={id} type='blog' />
+          <Header id={id} type='blog' alt={blog[`${id}`].header} />
           <Title id={id} type='blog'>{blog[`${id}`].title}</Title>
           <Date>{blog[`${id}`].date}</Date>
           <Markdown>{blog[`${id}`].preview}</Markdown>
         </Content>
       ))}
       <Actions>
-        <PrevButton type="blogs" page={page} />
-        <NextButton type="blogs" page={page} />
+        <PrevButton type='blogs' page={page} />
+        <NextButton type='blogs' page={page} />
       </Actions>
     </div>
   )

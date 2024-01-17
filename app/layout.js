@@ -4,7 +4,8 @@ import About from '@/components/about'
 
 export const metadata = {
   title: 'Mark\'s Blog',
-  description: 'Welcome to my blog',
+  description: 'Mark\'s sketchbook records whimsical ideas. Mainly mathematics, technology, and Python.',
+  themeColor: '#191919'
 }
 
 export default function RootLayout({ children }) {
