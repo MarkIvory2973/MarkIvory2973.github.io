@@ -1,6 +1,12 @@
 import { Content, Header, Title, Date, Markdown } from '@/components/content'
 import blog from '@/blog/blog'
 
+export const metadata = {
+  title: blog[3].title + ' - Mark\'s Blog',
+  description: blog[3].preview,
+  themeColor: '#191919'
+}
+
 <div className='h'>
   <h2>Blog</h2>
   <Content>
@@ -10,7 +16,7 @@ import blog from '@/blog/blog'
     <Markdown>
       最近在研究 SS（Shadowsocks）协议和 TOTP，突然想到了一个点子，能不能把它们两个结合起来呢？
 
-      ### 1. 代码实现
+      ## 代码实现
 
       下面是一个实现时序动态单表替换密码（TDMSC）的例子：
 
@@ -63,14 +69,14 @@ import blog from '@/blog/blog'
       # 输出：bytearray(b'Hello World!')
       ```
 
-      ### 2. 大概过程
+      ## 大概过程
 
       1. 客户端和服务端会交换**私钥** `pri_key`
       2. 得到的**私钥** `pri_key` 会结合当前**时间** `time` 生成**随机数种子** `seed`
       3. 原来的密码表会按照**随机数种子** `seed` 被打乱生成新的**密码表** `table`
       4. 按照**密码表** `table` 进行加解密
 
-      ### 3. 注意事项
+      ## 注意事项
 
       1. ***服务端与客户端的时间要一致***
       2. ***时序动态单表替换密码本质上还是一个单表替换密码，容易被破解***

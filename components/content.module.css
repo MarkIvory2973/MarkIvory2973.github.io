@@ -46,15 +46,34 @@ div.v article {
   background-color: rgba(0, 0, 0, 0);
 }
 
+div.v article h1,
+div.v article h2 {
+  border-bottom: none;
+}
+
+div.v article img {
+  display: block;
+  width: 60%;
+  margin: 0 auto;
+}
+
 div.v article table,
-div.v article pre {
+div.v article pre,
+div.v article img {
+  border-radius: 6px;
   box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.2);
   transition: box-shadow 300ms;
 }
 
 div.v article table:hover,
-div.v article pre:hover {
+div.v article pre:hover,
+div.v article img:hover {
   box-shadow: 0 0 20px 15px rgba(0, 0, 0, 0.2);
+}
+
+div.v article table th,
+div.v article table td {
+  border: none;
 }
 
 div.v article pre div {

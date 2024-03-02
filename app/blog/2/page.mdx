@@ -1,6 +1,12 @@
 import { Content, Header, Title, Date, Markdown } from '@/components/content'
 import blog from '@/blog/blog'
 
+export const metadata = {
+  title: blog[2].title + ' - Mark\'s Blog',
+  description: blog[2].preview,
+  themeColor: '#191919'
+}
+
 <div className='h'>
   <h2>Blog</h2>
   <Content>
@@ -10,7 +16,7 @@ import blog from '@/blog/blog'
     <Markdown>
       今天手贱运行了 `yarn run eject`，试过之后后悔了，网上大多都在说「**这是个不可逆的操作**」，让你重建项目。但实际上，你不需要重建项目就能恢复。
 
-      ### 1. Eject 做了什么
+      ## Eject 做了什么
 
       想要撤回 Eject，就要知道它做了什么？Eject 大概可以分成三个操作：
 
@@ -37,7 +43,7 @@ import blog from '@/blog/blog'
 
       总的来说，Eject 其实就是把原本放在包 `react-scripts` 里的**逻辑代码**和**配置**都移到了项目根目录里，让我们能够自己配置。
 
-      ### 2. 如何撤回 Eject
+      ## 如何撤回 Eject
 
       其实答案已经出来了，只要和 Eject **对着干**就行，具体分三步：
 
@@ -56,7 +62,7 @@ import blog from '@/blog/blog'
 
       完成！
 
-      ### 3. 参考资料
+      ## 参考资料
 
       1. https://www.jianshu.com/p/1fc08aa4279a
       2. https://cloud.tencent.com/developer/article/1472477
