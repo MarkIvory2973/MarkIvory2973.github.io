@@ -1,8 +1,3 @@
-@font-face {
-  font-family: 'Aptos';
-  src: url('../public/aptos.ttf');
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -10,7 +5,7 @@
 }
 
 *:not(span.katex-html, .markdown-body *) {
-  font-family: 'Aptos';
+  font-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
 }
 
 body {
@@ -39,6 +34,7 @@ main {
 
 main div.h {
   margin: 20px;
+  margin-top: 0;
 }
 
 @media (max-width: 38.75rem) {
@@ -55,6 +51,10 @@ main div.h {
   main div.h:last-child {
       width: 38.2%;
   }
+}
+
+main div.h h2 {
+  margin-top: 20px;
 }
 
 main div.h h2::before {
