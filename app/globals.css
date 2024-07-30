@@ -9,7 +9,7 @@
 }
 
 body {
-  background: url('../public/Wallpaper.webp') center/cover fixed no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../public/Wallpaper.webp') center/cover fixed no-repeat;
 }
 
 a {

@@ -7,6 +7,7 @@ function Series() {
         <h3>人工智能（持续更新中）</h3>
         <div className={styles.links}>
             <Link href='/blog/5' aria-label='1. 神经网络的本质'>1. 神经网络的本质</Link>
+            <Link href='/blog/7' aria-label='2. 神经网络如何自动调整'>2. 神经网络如何自动调整</Link>
         </div>
         <h3>科学上网（持续更新中）</h3>
         <div className={styles.links}>
