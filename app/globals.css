@@ -16,6 +16,10 @@ a {
   text-decoration: none;
 }
 
+a, p, li {
+  font-weight: 100;
+}
+
 span.katex-html {
   display: none;
 }
