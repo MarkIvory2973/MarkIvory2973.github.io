@@ -54,7 +54,12 @@ div.v article h2 {
 div.v article img {
   display: block;
   width: 60%;
-  margin: 0 auto;
+}
+
+div.v article table,
+div.v article img {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 div.v article table,
