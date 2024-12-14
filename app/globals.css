@@ -1,0 +1,75 @@
+* {
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+
+*:not(span.katex-html, .markdown-body *) {
+  font-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
+}
+
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../public/Wallpaper.webp') center/cover fixed no-repeat;
+}
+
+a {
+  text-decoration: none;
+}
+
+a, p, li {
+  font-weight: 100;
+}
+
+span.katex-html {
+  display: none;
+}
+
+span.katex-display math {
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+main {
+  max-width: 1200px;
+  display: flex;
+  margin: 57px auto;
+  justify-content: center;
+}
+
+main div.h {
+  margin: 20px;
+  margin-top: 0;
+}
+
+@media (max-width: 38.75rem) {
+  main {
+      flex-direction: column;
+  }
+}
+
+@media (min-width: 38.75rem) {
+  main div.h:first-child {
+      width: 61.8%;
+  }
+  
+  main div.h:last-child {
+      width: 38.2%;
+  }
+}
+
+main div.h h2 {
+  margin-top: 20px;
+}
+
+main div.h h2::before {
+  content: "·";
+  display: inline-block;
+  width: 6px;
+  height: 26px;
+  margin: 0 10px 0 0;
+  color: red;
+  background: red;
+  font-size: 0;
+  font-weight: 100;
+  vertical-align: 21px;
+}

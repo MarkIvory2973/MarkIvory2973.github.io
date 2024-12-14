@@ -1,0 +1,52 @@
+div.v {
+  backdrop-filter: blur(20px);
+  margin: 20px 0 0 0;
+  border-radius: 6px;
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 300ms;
+}
+  
+div.v:hover {
+  box-shadow: 0 0 20px 15px rgba(0, 0, 0, 0.2);
+}
+
+div#about {
+  display: flex;
+  padding: 15px;
+  flex-direction: column;
+  align-items: center;
+}
+
+img.avatar {
+  width: 128px;
+  height: 128px;
+  clip-path: circle(50%);
+}
+
+h3.name {
+  margin: 15px 0 0 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+p.bio {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+div.links {
+  display: flex;
+  margin: 15px 0 0 0;
+}
+
+a.link {
+  margin: 0 7.5px;
+}
+
+a.link svg {
+  fill: rgba(255, 255, 255, 0.6);
+  transition: fill 300ms;
+}
+
+a.link svg:hover {
+  fill: rgba(255, 255, 255, 1)
+}

@@ -1,0 +1,91 @@
+import { Content, Header, Title, Date, Markdown } from '@/components/content'
+import blog from '@/blog/blog'
+
+export const metadata = {
+  title: blog[4].title + ' - Mark\'s Blog',
+  description: blog[4].preview,
+  themeColor: '#191919'
+}
+
+<div className='h'>
+  <h2>Blog</h2>
+  <Content>
+    <Header id={4} type='blog' alt={blog[4].header} />
+    <Title id={4} type='blog'>{blog[4].title}</Title>
+    <Date>{blog[4].date}</Date>
+    <Markdown>
+      假设你有很多个数据不断输入，需要实时地计算平均值，但又不想储存数据，你会怎么做？
+
+      ## 普通平均值计算
+
+      平均值计算公式：
+
+      ```math
+      \mu_{n}=\frac{1}{n}(x_{1}+x_{2}+\dots+x_{n})
+      ```
+
+      当计算平均值时，我们先要将所有数据相加再除以**个数** $n$。而随着数据量的增加，所需要消耗的时间也会增加。而且，为了实时显示，中间有大量的项被重复计算。
+
+      ## 普通平均值计算的改进
+
+      有的人可能想到引入一个变量来减小内存占用，步骤如下：
+
+      1. 先将数据添加到**数据总和** $s_{n}$
+
+      ```math
+      s_{n-1}=x_{1}+x_{2}+\dots+x_{n-1}
+      ```
+      ```math
+      s_{n}=s_{n-1}+x_{n}
+      ```
+
+      2. 再计算**平均值** $\mu_{n}$
+
+      ```math
+      \mu_{n}=\frac{1}{n}s_{n}
+      ```
+
+      但是这样也有个问题，我们增加了一个新变量，那就增加了一点内存，而且在代码中你将会多一个变量需要操作。而为了尽可能地压榨内存和精简代码，我们需要使用**追加平均值**。
+
+      ## 追加平均值
+
+      其实追加平均值的原理和普通平均值计算的改进有点像，只不过是将它换了一种形式。那么，先看看结论：
+
+      ```math
+      \Delta\mu_{n}=\frac{x_{n}-\mu_{n-1}}{n}
+      ```
+      ```math
+      \mu_{n}=\mu_{n-1}+\Delta\mu_{n}
+      ```
+
+      接下来是推导过程：
+
+      ```math
+      \mu_{n-1}=\frac{1}{n-1}(x_{1}+x_{2}+\dots+x_{n-1})
+      ```
+      ```math
+      \mu_{n}=\frac{1}{n-1}(x_{1}+x_{2}+\dots+x_{n-1})\times\frac{n-1}{n}+\frac{1}{n}x_{n}
+      ```
+      ```math
+      \mu_{n}=\mu_{n-1}\times\frac{n-1}{n}+\frac{1}{n}x_{n}
+      ```
+      化简得，
+      ```math
+      \mu_{n}=\mu_{n-1}+\frac{x_{n}-\mu_{n-1}}{n}
+      ```
+      所以，
+      ```math
+      \Delta\mu_{n}=\frac{x_{n}-\mu_{n-1}}{n}
+      ```
+      ```math
+      \mu_{n}=\mu_{n-1}+\Delta\mu_{n}
+      ```
+
+      在追加平均值中，你只需设定**平均值**和**数据个数**两个变量即可。
+
+      ## 参考链接
+
+      1. https://zh.wikipedia.org/wiki/%E5%B9%B3%E5%9D%87%E6%95%B0
+    </Markdown>
+  </Content>
+</div>

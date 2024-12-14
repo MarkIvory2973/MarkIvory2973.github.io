@@ -1,0 +1,20 @@
+div.actions {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+div.actions a {
+  display: block;
+  background-color: rgb(0 0 0 / 0%);
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  transition: box-shadow 300ms;
+}
+
+div.actions a:hover {
+  box-shadow: 0 0 20px 15px rgba(0, 0, 0, 0.2);
+}

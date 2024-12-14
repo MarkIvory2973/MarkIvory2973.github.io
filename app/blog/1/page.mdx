@@ -1,0 +1,93 @@
+import { Content, Header, Title, Date, Markdown } from '@/components/content'
+import blog from '@/blog/blog'
+
+export const metadata = {
+  title: blog[1].title + ' - Mark\'s Blog',
+  description: blog[1].preview,
+  themeColor: '#191919'
+}
+
+<div className='h'>
+  <h2>Blog</h2>
+  <Content>
+    <Header id={1} type='blog' alt={blog[1].header} />
+    <Title id={1} type='blog'>{blog[1].title}</Title>
+    <Date>{blog[1].date}</Date>
+    <Markdown>
+      一直以来 Clash for Windows 是我翻墙的首选客户端。但随着技术的更新迭代，Clash for Windows 开始落后了。
+
+      ## Clash for Windows 的不足
+
+      1. Clash for Windows 使用的还是 Clash Premium 的核心，而不是 Clash.Meta，所以无法支持一些新的协议（VLESS、Reality、Hysteria 等）以及新特性（TCP 连接并发等）。不过也有很多网友请求 Fndroid 加入 Clash.Meta 内核，但他却以一句「**没有计划**」 [#2901](https://github.com/Fndroid/clash_for_windows_pkg/issues/2901)推掉了。
+      2. Clash for Windows 不支持中文！！！
+
+      ## Clash.Meta 主要特性
+
+      ### 2.1. 代理模块：
+
+      - 支持出站传输协议 VLESS Reality, Vision 流控
+      - 支持出站传输协议 Trojan XTLS
+      - 支持出站传输协议 Hysteria
+      - 支持出站传输协议 TUIC
+      - 支持出站传输协议 ShadowTLS
+      - 支持 PASS ( 跳过 ) 规则
+      - 主动健康检测 urltest/fallback（基于 tcp 握手，限定时间内多次失败会主动触发健康检测使用节点）
+      - 支持策略组正则筛选
+      - 允许 Provider 请求通过代理更新
+      - Proxy-Providers 支持直接使用 V2rayN 等客户端的普通订阅
+      - Relay 代理链支持 UDP over TCP
+      - TCP 连接并发
+
+      ### 2.2. 规则模块：
+
+      - 支持规则 GEOSITE
+      - 支持入站类型规则 IN-TYPE
+      - 支持规则集 RULE-SET
+      - 支持规则 SRC-PORT 和 DST-PORT 的多端口条件
+      - 支持规则对 TCP / UDP 分别管控
+      - 支持 Network 规则，支持匹配网络类型 ( TCP / UDP )
+      - 支持逻辑判断规则 ( NOT / OR / AND )
+      - 支持子规则集
+      - 支持所有规则的源 IPCIDR 条件，只需附加到末尾即可
+      - 支持 GEODATA MODE 切换，mmdb / dat
+      - 支持切换 GEODATA LOADER 模式切换 , 普通 / 小内存模式
+      - 支持 GeoSite 按需加载
+      - 支持使用 geox-url 自定义的 GEOIP / GEOSITE 数据库下载地址
+
+      ### 2.3. DNS 模块：
+
+      - 支持 Sniffer 域名嗅探器
+      - 支持 Fallback-Filter 使用 Geosite
+      - 恢复 Redir-Host 远程解析
+      - 支持使用代理解析 ip
+      - 支持使用 Policy 分流 DNS
+      - 支持 DNS over HTTP/3
+      - 支持 DNS over QUIC
+
+      ### 2.4. TUN 模块：
+
+      - 支持 macOS、Linux 和 Windows
+      - 内置 iptables, 无需手动配置
+      - 内置 Wintun 驱动程序
+      - 支持 gvisor / system / lwip 堆栈
+
+      ## 支持 Clash.Meta 的客户端
+
+      |Windows|Android|Linux|Mac OS|iOS|OpenWRT|
+      |:-----:|:-----:|:---:|:----:|:-:|:-----:|
+      |Clash Verge|Clash.Meta for Android|Clash Verge|Clash Verge|MFI|OpenClash|
+      |Clash Meta for Windows Mini|/|/|ClashX|/|/|
+      |Clash.Mini|/|/|/|/|/|
+      |ClashN|/|/|/|/|/|
+      |v2rayN|/|/|/|/|/|
+
+      ## 详细教程
+
+      如果你想获得有关 Clash.Meta 的详细教程，可以看看 [Clash.Meta Docs](https://wiki.metacubex.one/)
+
+      ## 参考资料
+
+      1. https://wiki.metacubex.one/
+    </Markdown>
+  </Content>
+</div>

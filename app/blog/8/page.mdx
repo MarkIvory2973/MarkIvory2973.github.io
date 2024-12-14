@@ -1,0 +1,54 @@
+import { Content, Header, Title, Date, Markdown } from '@/components/content'
+import blog from '@/blog/blog'
+
+export const metadata = {
+  title: blog[8].title + ' - Mark\'s Blog',
+  description: blog[8].preview,
+  themeColor: '#191919'
+}
+
+<div className='h'>
+  <h2>Blog</h2>
+  <Content>
+    <Header id={8} type='blog' alt={blog[8].header} />
+    <Title id={8} type='blog'>{blog[8].title}</Title>
+    <Date>{blog[8].date}</Date>
+    <Markdown>
+      [上一期](/blog/6)我们选择了合适的客户端，但使用教程和节点（提示：可以先从 [GitHub](https://github.com/search?q=clash%20%E8%AE%A2%E9%98%85&type=repositories) 找免费节点作为跳板，再去 [YouTube](https://www.youtube.com/results?search_query=%E6%9C%BA%E5%9C%BA%E6%8E%A8%E8%8D%90+2024) 找机场）就需要自己去找了。本篇着重讲如何提升安全性。
+
+      另外，购买订阅时一定要选**月付**，因为**每年六月**或**开会**时机场总是会跑路。
+
+      ## 普通人如何提升安全性
+
+      - 尽量使用开源的客户端
+
+      - 不用来路不明的节点
+
+      - 调查机场的背景
+
+      - 在翻墙的基础上使用 Tor、I2P 上网（当你信不过机场，又想看敏感内容时）
+
+      - 用国外的、临时性的、匿名性的**邮箱**和**手机号**注册所有在外网的账号，且**让国内邮箱不要出现国外的东西**
+
+        - 用 [Google Mail](https://mail.google.com/)、[临时邮箱](https://www.bing.com/search?q=Temp+Mail)等（必须的）
+        - 用 [SMS Activate](https://sms-activate.org/en) 等验证**手机验证码**（必须的）
+        - 用 [Duckduckgo Mail](https://duckduckgo.com/email/)、[Proton Mail](https://proton.me/) 等转发到**国外主邮箱**（进阶）
+
+      - 保护个人信息（必须的）
+
+        - 不要将**用户名、头像、生日**等设置为与国内一样的
+        - 注意你发的图片（因为图片的 exif 信息中可能会有**地址**、某个店铺的**电话号码**或**地址**、**车牌号**等）
+        - 不要在国内和国外发**同样的东西**
+
+      目前警察只是找那些看政治或者搞政治的人的麻烦，毕竟翻墙的不止你一个，全部都抓成本太高。但也不能掉以轻心，基础的还是要做好滴，万一将来突然就找你呢？
+
+      非普通人[点这里](https://shorturl.at/huEIx)（翻墙后再点）。
+
+      ## 参考资料
+
+      1. https://shorturl.at/huEIx
+      3. https://www.youtube.com/watch?v=vuF6rDLp3pg
+      2. https://www.duangks.com/archives/115/
+    </Markdown>
+  </Content>
+</div>

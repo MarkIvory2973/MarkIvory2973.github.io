@@ -1,0 +1,40 @@
+nav.navbar {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 300ms;
+    z-index: 999;
+}
+
+nav.navbar:hover {
+    box-shadow: 0 0 20px 15px rgba(0, 0, 0, 0.2);
+}
+
+nav.navbar ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+
+nav.navbar ul li {
+    margin: auto 0;
+}
+
+nav.navbar ul li a {
+    display: block;
+    padding: 10px;
+    margin: 5px 15px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background 300ms;
+}
+
+nav.navbar ul li a:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+nav.navbar ul li a#title {
+    font-size: 20px;
+}

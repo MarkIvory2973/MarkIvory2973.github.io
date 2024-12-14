@@ -1,0 +1,72 @@
+import { Content, Header, Title, Date, Markdown } from '@/components/content'
+import blog from '@/blog/blog'
+
+export const metadata = {
+  title: blog[2].title + ' - Mark\'s Blog',
+  description: blog[2].preview,
+  themeColor: '#191919'
+}
+
+<div className='h'>
+  <h2>Blog</h2>
+  <Content>
+    <Header id={2} type='blog' alt={blog[2].header} />
+    <Title id={2} type='blog'>{blog[2].title}</Title>
+    <Date>{blog[2].date}</Date>
+    <Markdown>
+      今天手贱运行了 `yarn run eject`，试过之后后悔了，网上大多都在说「**这是个不可逆的操作**」，让你重建项目。但实际上，你不需要重建项目就能恢复。
+
+      ## Eject 做了什么
+
+      想要撤回 Eject，就要知道它做了什么？Eject 大概可以分成三个操作：
+
+      1. 删除包 `react-scripts`
+      2. 修改 `package.json` 里的 `scripts`
+      ```json
+      // 运行前
+      "scripts": {
+          "start": "react-scripts start",
+          "build": "react-scripts build",
+          "test": "react-scripts test --env=jsdom",
+          "eject": "react-scripts eject"
+      }
+      ```
+      ```json
+      // 运行后
+      "scripts": {
+          "start": "node scripts/start.js",
+          "build": "node scripts/build.js",
+          "test": "node scripts/test.js --env=jsdom"
+      }
+      ```
+      3. 新增了 `scripts` 和 `config` 文件夹
+
+      总的来说，Eject 其实就是把原本放在包 `react-scripts` 里的**逻辑代码**和**配置**都移到了项目根目录里，让我们能够自己配置。
+
+      ## 如何撤回 Eject
+
+      其实答案已经出来了，只要和 Eject **对着干**就行，具体分三步：
+
+      1. 删除 `scripts`、`config`、`node_modules` 文件夹
+      2. 运行 `yarn add react-scripts` 将包 `react-scripts` 安装回来
+      3. 将 `package.json` 的 `scripts` 变成：
+      ```json
+      "scripts": {
+          "start": "react-scripts start",
+          "build": "react-scripts build",
+          "test": "react-scripts test --env=jsdom",
+          "eject": "react-scripts eject"
+      }
+      ```
+      4. 运行 `yarn install` 安装所有依赖项
+
+      完成！
+
+      ## 参考资料
+
+      1. https://www.jianshu.com/p/1fc08aa4279a
+      2. https://cloud.tencent.com/developer/article/1472477
+      3. https://stackoverflow.com/questions/51454729/undo-npm-run-eject-in-react
+    </Markdown>
+  </Content>
+</div>

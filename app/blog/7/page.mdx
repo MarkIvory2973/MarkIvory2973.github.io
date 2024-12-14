@@ -1,0 +1,76 @@
+import { Content, Header, Title, Date, Markdown } from '@/components/content'
+import blog from '@/blog/blog'
+
+export const metadata = {
+  title: blog[7].title + ' - Mark\'s Blog',
+  description: blog[7].preview,
+  themeColor: '#191919'
+}
+
+<div className='h'>
+  <h2>Blog</h2>
+  <Content>
+    <Header id={7} type='blog' alt={blog[7].header} />
+    <Title id={7} type='blog'>{blog[7].title}</Title>
+    <Date>{blog[7].date}</Date>
+    <Markdown>
+      这是[上一期](/blog/5)提到的感知器公式：
+
+      ```math
+      f(x)=W_{1}X_{1}+W_{2}X_{2}+b
+      ```
+
+      它本质上是一条线，它的目标是分开这分布在二维平面上的点（橙色点的目标值为 1， 蓝色点的为 0）：
+
+      ![一个坐标轴包含两类数据和一条分割线](/7/1.webp)
+
+      而这条线由 $W_{1}$、$W_{2}$ 和 $b$ 共同影响。
+
+      所以，问题的关键其实是要知道 $W_{i}$ 和 $b$ 要变大还是变小，变大变小多少？
+
+      ## 自动调整
+
+      直接告诉你答案吧：
+
+      ```math
+      W_{i(t)} = W_{i(t-1)} + (Y - y) * x_{i}
+      ```
+      ```math
+      b_{(t)} = b_{(t-1)} + (Y - y)
+      ```
+
+      $Y$ 是目标值，$y$ 是输出值。
+
+      当 $Y$ 和 $y$ 一致，分类正确，$(Y - y)=0$，不调整。
+
+      当蓝色的点在线上方时，分类错误，$(Y - y)=-1$，说明 $W_{i}$ 或 $b$ 太大：
+
+      ![一个坐标轴有一个蓝色的点而线因W2的减小穿过了那个点](/7/2.webp)
+
+      当橙色的点在线下方时，分类错误，$(Y - y)=1$，说明 $W_{i}$ 或 $b$ 太小：
+
+      ![一个坐标轴有一个橙色的点而线因W2的增大穿过了那个点](/7/3.webp)
+
+      乘以 $x_{i}$ 是因为随着 $x_{i}$ 变大，$W_{i}$ 调整得也应该更大：
+
+      ![一个坐标轴有一个橙色的点而线因W2的增大穿过了那个点](/7/4.webp)
+
+      通常，它们还会再被乘个 $r$，这会在今后的内容里展开。
+
+      ```math
+      W_{i(t)} = W_{i(t-1)} + (Y - y) * x_{i} * r
+      ```
+      ```math
+      b_{(t)} = b_{(t-1)} + (Y - y) * r
+      ```
+
+      ## 结尾
+
+      通过不断调整 $W_{i}$ 和 $b$ 值，机器总能将点分成两类。
+
+      试试看，这个能不能被分开：
+
+      ![一个坐标轴里有两类点](/7/5.webp)
+    </Markdown>
+  </Content>
+</div>

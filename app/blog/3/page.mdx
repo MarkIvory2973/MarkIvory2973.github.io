@@ -1,0 +1,85 @@
+import { Content, Header, Title, Date, Markdown } from '@/components/content'
+import blog from '@/blog/blog'
+
+export const metadata = {
+  title: blog[3].title + ' - Mark\'s Blog',
+  description: blog[3].preview,
+  themeColor: '#191919'
+}
+
+<div className='h'>
+  <h2>Blog</h2>
+  <Content>
+    <Header id={3} type='blog' alt={blog[3].header} />
+    <Title id={3} type='blog'>{blog[3].title}</Title>
+    <Date>{blog[3].date}</Date>
+    <Markdown>
+      最近在研究 SS（Shadowsocks）协议和 TOTP，突然想到了一个点子，能不能把它们两个结合起来呢？
+
+      ## 代码实现
+
+      下面是一个实现时序动态单表替换密码（TDMSC）的例子：
+
+      ```python
+      import random
+      import time
+
+      # 生成密码表
+      def generate_table(pri_key, step):
+          # 原密码表
+          table = list(range(256))
+
+          # 生成随机数种子
+          seed = pri_key * divmod(time.time(), step)[0]
+          random.seed(seed)
+
+          # 打乱原密码表
+          random.shuffle(table)
+
+          return table
+
+      # 加密
+      def encrypt(bytes, table):
+          encrypted_bytes = []
+          for byte in bytes:
+              encrypted_bytes.append(table[byte])
+
+          return bytearray(encrypted_bytes)
+
+      # 解密
+      def decrypt(bytes, table):
+          decrypted_bytes = []
+          for byte in bytes:
+              decrypted_bytes.append(table.index(byte))
+
+          return bytearray(decrypted_bytes)
+
+      table = generate_table(12345678, 30)
+
+      text = bytearray(b"Hello World!")
+      print(text)
+      # 输出：bytearray(b'Hello World!')
+
+      m = encrypt(text, table)
+      print(m)
+      # 输出：bytearray(b'\x15\xe9\xd1\xd1\xf1h\xee\xf1#\xd1\xf2{')
+
+      c = decrypt(m, table)
+      print(c)
+      # 输出：bytearray(b'Hello World!')
+      ```
+
+      ## 大概过程
+
+      1. 客户端和服务端会交换**私钥** `pri_key`
+      2. 得到的**私钥** `pri_key` 会结合当前**时间** `time` 生成**随机数种子** `seed`
+      3. 原来的密码表会按照**随机数种子** `seed` 被打乱生成新的**密码表** `table`
+      4. 按照**密码表** `table` 进行加解密
+
+      ## 注意事项
+
+      1. ***服务端与客户端的时间要一致***
+      2. ***时序动态单表替换密码本质上还是一个单表替换密码，容易被破解***
+    </Markdown>
+  </Content>
+</div>

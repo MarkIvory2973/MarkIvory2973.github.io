@@ -1,0 +1,93 @@
+import { Content, Header, Title, Date, Markdown } from '@/components/content'
+import blog from '@/blog/blog'
+
+export const metadata = {
+  title: blog[9].title + ' - Mark\'s Blog',
+  description: blog[9].preview,
+  themeColor: '#191919'
+}
+
+<div className='h'>
+  <h2>Blog</h2>
+  <Content>
+    <Header id={9} type='blog' alt={blog[9].header} />
+    <Title id={9} type='blog'>{blog[9].title}</Title>
+    <Date>{blog[9].date}</Date>
+    <Markdown>
+      一个节点的质量不能只看它的**延迟**，还要考虑它的**稳定性**。
+
+      就算一个节点的延迟再低，只要不稳定，看视频总是会卡顿。
+
+      ## 容忍度
+
+      好在 URL Test 引入了**容忍度**（tolerance）。
+      
+      即如果另一个节点的延迟与当前选择的节点延迟的差值大于容忍度，则选择另一个节点。
+      
+      似乎容忍度就能解决稳定性的问题了，如果所有节点的稳定性都很好，容忍度就要低一些，反之则高一些。
+
+      但问题是：**容忍度应该具体取多少？**
+
+      ## 新方法
+
+      实际上，我们不需要知道容忍度是多少，甚至不需要容忍度。
+
+      在数学中，**标准差**是用来衡量数据离散程度的工具，而它同样也能衡量一个节点的**稳定性**。
+      
+      再通过和其中位数进行**加权平均**运算，不仅解决了容忍度太「硬」的策略，还能让用户自己对稳定性和速度做取舍。
+
+      ## 数学公式
+
+      为简化公式，对于实数数列 $x = (x_{1}, x_{2}, \dots, x_{i})$ 的**标准差**表示为 $S(x)$ ，**方差**表示为 $V(x)$ ，**中位数**表示为 $Q(x)$ 。
+      
+      **节点延迟** $D$（一行代表**一个节点**，一列代表**一次测速**）、**权重** $k$ 与**极小值** $\epsilon$ ：
+
+      ```math
+      D=\begin{bmatrix}
+        d_{1,1} & d_{1,2} & \dots & d_{1,j}\\
+        d_{2,1} & d_{2,2} & \dots & d_{2,j}\\
+        \vdots & \vdots & \ddots & \vdots\\
+        d_{i,1} & d_{i,2} & \dots & d_{i,j}
+      \end{bmatrix}
+      ```
+      ```math
+      k \in [0, 1]
+      ```
+      ```math
+      \epsilon = 1 \times 10^{-5}
+      ```
+
+      计算每个节点的延迟的**标准差** $\sigma_{i}$ 和**中位数** $\mu_{i}$ 并归一化：
+
+      ```math
+      \sigma_{i} = \frac{S(D_{i})}{\sqrt{V(\sigma) + \epsilon}}
+      ```
+      ```math
+      \mu_{i} = \frac{S(D_{i})}{\sqrt{V(\mu) + \epsilon}}
+      ```
+
+      计算每个节点的**分数** $s_{i}$ ：
+
+      ```math
+      s_{i} = 1-[(1-k)\sigma_{i} + k\mu_{i}]
+      ```
+
+      最后得到的分数越高，说明节点质量越高。
+
+      ## 结尾
+
+      对于该算法的程序我放在了[GitHub](https://github.com/MarkIvory2973/ProxyTest)里。
+
+      本人没怎么学过矩阵之类的东西，如果有什么不严谨的地方欢迎[指出](https://github.com/MarkIvory2973/MarkIvory2973.github.io/issues/new/choose)
+
+      ## 参考资料
+
+      1. https://wiki.metacubex.one/en/config/proxy-groups/url-test/?h=tolerance#tolerance
+      2. https://zh.wikipedia.org/zh-hk/%E6%A8%99%E6%BA%96%E5%B7%AE
+      3. https://zh.wikipedia.org/zh-hk/%E6%96%B9%E5%B7%AE
+      4. https://zh.wikipedia.org/zh-hk/%E4%B8%AD%E4%BD%8D%E6%95%B8
+      5. https://arxiv.org/abs/1607.06450
+      6. https://zh.wikipedia.org/zh-hk/%E5%8A%A0%E6%AC%8A%E5%B9%B3%E5%9D%87%E6%95%B8
+    </Markdown>
+  </Content>
+</div>

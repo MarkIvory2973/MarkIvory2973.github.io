@@ -1,0 +1,29 @@
+div.v {
+  backdrop-filter: blur(20px);
+  margin: 20px 0 0 0;
+  border-radius: 6px;
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 300ms;
+}
+  
+div.v:hover {
+  box-shadow: 0 0 20px 15px rgba(0, 0, 0, 0.2);
+}
+
+div#series {
+  padding: 15px;
+}
+
+div.links {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+div.links:last-child {
+  padding-bottom: 0;
+}
+
+div.links a {
+  color: #2f81f7;
+}
