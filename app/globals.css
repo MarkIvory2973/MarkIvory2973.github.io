@@ -5,7 +5,7 @@
 }
 
 *:not(span.katex-html, .markdown-body *) {
-  font-family: 'Segoe UI', 'Segoe UI Web (West European)', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
+  font-family: 'Roboto', 'Noto Sans SC', sans-serif;
 }
 
 body {

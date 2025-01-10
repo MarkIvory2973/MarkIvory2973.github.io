@@ -34,11 +34,9 @@ p.date {
   color: rgba(255, 255, 255, 0.6)
 }
 
-p.date::before {
-  content: '\EC92';
+p.date svg {
   padding: 0 8px 0 0;
-  font-family: 'Segoe Fluent Icons';
-  vertical-align: -2.5px;
+  vertical-align: -5px;
 }
 
 div.v article {
