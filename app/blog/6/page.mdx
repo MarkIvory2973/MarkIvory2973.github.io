@@ -22,9 +22,9 @@ export const metadata = {
 
       如果你对翻墙有一定了解，你可能知道 XX VPN 或 XX 加速器。
 
-      这些翻墙手段在以前确实很潮流，而在 2024 年的今天显得有些过时了。
+      这些翻墙手段在以前确实很流行，而在 2024 年的今天显得有些不足了。
 
-      但这不是重点，重要的是在使用这些来路不明的 VPN 或加速器时，你的**安全**和**隐私**又如何保障？在你看到不该看的后，你又怎能确定其制作者是不是个国人，偷偷把你的数据都给了公安？
+      但这不是重点，重要的是在使用这些来路不明的 VPN 或加速器时，你的**安全**和**隐私**又如何保障？在你看到不该看的后，你又怎能确定其制作者有没有在软件嵌入了恶意代码，偷偷把你的数据都收集给了公安？
 
       虽然有部分是疑点，但可以肯定的是，它们不那么安全了。
 
@@ -32,28 +32,24 @@ export const metadata = {
 
       早期的 VPN 和加速器使用的大多是 PPTP 和 L2TP 协议，现在已经能被监控和封锁了。
 
-      所以，他们开始寻找新的解决方案——Shadowsocks 协议（[Shadowsocks 原理](https://github.com/gwuhaolin/blog/issues/12)）。
+      因此，他们开始寻找新的解决方案——Shadowsocks 协议（[Shadowsocks 原理](https://github.com/gwuhaolin/blog/issues/12)）。
 
-      既然本质是 Shadowsocks 协议，干嘛非得用 VPN 或加速器呢？而且又贵又容易跑路。
+      所以，你见到的大部分 VPN 或加速器其实大多是 V2Ray 和 Clash 的套壳。
 
       ## 那我应该如何翻墙
 
-      使用这些客户端代替 VPN 和加速器：
+      下面这些客户端大多是**开源**的，这使得任何人都能审查代码，防止开发者在软件中添加恶意代码。：
         - **Windows：** [V2RayN](https://github.com/2dust/v2rayN/releases)、[Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases)、[FlClash](https://github.com/chen08209/FlClash)
         - **Android：** [V2RayNG](https://github.com/2dust/v2rayNG/releases)、[Surfboard](https://github.com/getsurfboard/surfboard/releases)、[FlClash](https://github.com/chen08209/FlClash)
         - **Linux：** [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases)、[FlClash](https://github.com/chen08209/FlClash)
         - **MacOS：** [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases)、[FlClash](https://github.com/chen08209/FlClash)、 Surge Mac、Quantumult X
         - **iOS：** Surge iOS、Shadowrocket、Quantumult X
 
-      有些客户端是**开源**的，这使得任何人都能审查代码，保障了安全性。
-
       且它们所使用的内核支持多种协议（如：Shadowsocks、VMESS、Reality 等）的代理。
 
       特别是 Reality 协议，兼顾了速度和安全性（[Reality 原理](https://www.chengxiaobai.com/trouble-maker/journey-switching-from-v2ray-to-xray.html)）。
 
-      ## 结尾
-
-      当然，有了客户端还不够，要有节点才能翻墙。但下一篇不讲怎么找节点，而是怎么提升安全性。
+      除此之外，在节点失效时你无需更换整个软件，只用更换节点就行。
 
       ## 参考资料
 
