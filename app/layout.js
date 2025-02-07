@@ -1,4 +1,5 @@
 import './globals.css'
+import 'katex/dist/katex.min.css'
 import NavBar from '@/components/navbar'
 import About from '@/components/about'
 import Series from '@/components/series'

@@ -16,15 +16,6 @@ a {
   text-decoration: none;
 }
 
-span.katex-html {
-  display: none;
-}
-
-span.katex-display math {
-  margin-bottom: 16px;
-  font-size: 20px;
-}
-
 main {
   max-width: 1200px;
   display: flex;
