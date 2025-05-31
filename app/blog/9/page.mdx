@@ -54,25 +54,25 @@ export const metadata = {
       k \in [0, 1]
       ```
       ```math
-      \epsilon = 1 \times 10^{-5}
+      \epsilon = 1 \times 10^{-2}
       ```
 
       计算每个节点的延迟的**标准差** $\sigma_{i}$ 和**中位数** $\mu_{i}$ 并归一化：
 
       ```math
-      \sigma_{i} = \frac{S(D_{i})}{\sqrt{V(\sigma) + \epsilon}}
+      \sigma_{i} = \frac{S(D_{i})-\sigma_{min}}{\sqrt{V(\sigma) + \epsilon}}
       ```
       ```math
-      \mu_{i} = \frac{Q(D_{i})}{\sqrt{V(\mu) + \epsilon}}
+      \mu_{i} = \frac{Q(D_{i})-\mu_{min}}{\sqrt{V(\mu) + \epsilon}}
       ```
 
       计算每个节点的**分数** $s_{i}$ ：
 
       ```math
-      s_{i} = 1-[(1-k)\sigma_{i} + k\mu_{i}]
+      s_{i} = k\mu_{i} + (1-k)\sigma_{i}
       ```
 
-      最后得到的分数越高，说明节点质量越高。
+      最后得到的分数越低，说明节点质量越高。
 
       ## 结尾
 
